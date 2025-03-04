@@ -20,4 +20,7 @@ export default defineNuxtConfig({
     strict: true,
     shim: false,
   },
+  build: {
+    transpile: ["class-variance-authority"],
+  },
 });
