@@ -1,4 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const router = useRouter();
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "@/store/auth";
+
+const { logUserOut } = useAuthStore();
+const { authenticated } = storeToRefs(useAuthStore());
+
+const logout = () => {
+  logUserOut();
+  router.push("/login");
+};
+</script>
 
 <template>
   <div>
@@ -17,10 +29,20 @@
               class="text-gray-600 hover:text-blue-500 transition"
               >About</MyNavLink
             >
+
             <Button
+              @click="() => router.push('/login')"
+              v-if="!authenticated"
               class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
             >
               Login
+            </Button>
+            <Button
+              @click="() => logout()"
+              v-if="authenticated"
+              class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
+            >
+              Logout
             </Button>
           </div>
         </div>

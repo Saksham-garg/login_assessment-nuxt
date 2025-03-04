@@ -10,9 +10,14 @@ interface Props {
 
 defineProps<Props>();
 
-defineEmits<{
-  (e: "update:modelValue", value: string | number): void;
+const emit = defineEmits<{
+  "update:modelValue": [value: string];
 }>();
+
+const handleInput = (e: Event) => {
+  const target = e.target as HTMLInputElement;
+  emit("update:modelValue", target.value);
+};
 </script>
 
 <template>
@@ -26,7 +31,7 @@ defineEmits<{
       :type="type"
       :placeholder="placeholder"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="(e) => handleInput(e)"
       class="mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300"
     />
   </div>
