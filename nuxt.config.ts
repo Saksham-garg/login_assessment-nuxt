@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-03-04",
   devtools: { enabled: true },
@@ -7,15 +8,13 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
   ],
+  css: ["~/assets/css/main.css"],
+  postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
   vite: {
-    resolve: {
-      alias: {
-        "lucide-vue-next": "lucide-vue-next/dist/lucide-vue-next.es.js",
-      },
-    },
     optimizeDeps: {
       include: ["class-variance-authority", "lucide-vue-next"],
     },
+    plugins: [tailwindcss()],
   },
   typescript: {
     strict: true,
