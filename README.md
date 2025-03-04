@@ -1,3 +1,6 @@
+# Design Took from
+https://www.figma.com/design/lOVtFeSX1jgpYC8R5TgK4O/Login-Page-UI-(Community)?node-id=1-95&t=RrzU0psS5ZfDMJ2l-0
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
