@@ -2,9 +2,9 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-vue-next";
 import { cn } from "@/utils/utils";
-import { defineProps } from "vue";
 
-interface ButtonProps extends VariantProps<typeof ButtonVariants> {
+interface ButtonProps
+  extends /* @vue-ignore */ VariantProps<typeof ButtonVariants> {
   variant?: "default" | "ghost";
   size?: "default" | "sm" | "lg";
   isLoading?: boolean;

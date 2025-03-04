@@ -23,4 +23,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["class-variance-authority"],
   },
+  imports: {
+    autoImport: true,
+  },
 });
