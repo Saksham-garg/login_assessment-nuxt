@@ -6,7 +6,15 @@
     },
     "types": ["vite/client", "@types/node"],
     "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true
-  }
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+  },
+  "extends": "./.nuxt/tsconfig.json",
+  "include": [
+    "env.d.ts",
+    ".nuxt/nuxt.d.ts",
+    "**/*"
+  ]
 }
